@@ -18,7 +18,23 @@ function Next() {
     }, 500);
 }
 
+function Prev() {
+    let sliderSection = document.querySelectorAll(".slider__section");
+    let sliderSectionLast = sliderSection[sliderSection.length -1];
+    slider.style.marginLeft = "0";
+    slider.style.transition = "all 0.5s";
+    setTimeout(function(){
+        slider.style.transition = "none";
+        slider.insertAdjacentElement('afterbegin', sliderSectionLast);
+        slider.style.marginLeft = "-100%";
+    }, 500);
+}
+
 btnRight.addEventListener('click', function(){
     Next();
 });
 
+
+btnLeft.addEventListener('click', function(){
+    Prev();
+});
